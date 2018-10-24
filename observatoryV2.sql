@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  mer. 24 oct. 2018 à 14:48
+-- Généré le :  mer. 24 oct. 2018 à 17:02
 -- Version du serveur :  10.1.34-MariaDB
 -- Version de PHP :  7.2.7
 
@@ -3093,7 +3093,7 @@ CREATE TABLE `medecin` (
   `id` int(11) NOT NULL,
   `nom` varchar(30) NOT NULL,
   `prenom` varchar(30) NOT NULL,
-  `code` varchar(30) NOT NULL,
+  `doctorCode` varchar(30) NOT NULL,
   `telephone` varchar(20) DEFAULT NULL,
   `mail` varchar(100) DEFAULT NULL,
   `statut` varchar(100) NOT NULL,
@@ -3104,24 +3104,24 @@ CREATE TABLE `medecin` (
 -- Déchargement des données de la table `medecin`
 --
 
-INSERT INTO `medecin` (`id`, `nom`, `prenom`, `code`, `telephone`, `mail`, `statut`, `id_service`) VALUES
-(36, 'RAOUF', 'Mohsin', '', '', '', '', 3),
-(37, 'SOUADKA', 'Amine', '', '', '', '', 3),
-(38, 'BENKABOU', 'Amine', '', '', '', '', 3),
-(39, 'MAJBAR', 'Anas', '', '', '', '', 3),
-(40, 'BOUGTAB', 'Abdeslam', '', '', '', '', 3),
-(41, 'BELKOUCHI', 'Abdelkader', '', '', '', '', 2),
-(42, 'IFRINE', 'Lahssan', '', '', '', '', 2),
-(43, 'MALKI', 'Hadj Omar', '', '', '', '', 2),
-(44, 'CHEFCHAOUNI', 'Mountassir', '', '', '', '', 2),
-(45, 'AHALLAT', 'Mohamed', '', '', '', '', 1),
-(46, 'HRORA', 'Abdelmalek', '', '', '', '', 1),
-(47, 'RAISS', 'Mohamed', '', '', '', '', 1),
-(48, 'SABBAH', 'Farid', '', '', '', '', 1),
-(49, 'MAJBAR', 'Anas', '', '', '', '', 1),
-(50, 'ELHARROUDI', 'TIJANI', '', '', '', '', 4),
-(51, 'ALAOUI', 'Mouna', '', '', '', '', 1),
-(52, 'SERJI', 'Badr', '', '', '', '', 4);
+INSERT INTO `medecin` (`id`, `nom`, `prenom`, `doctorCode`, `telephone`, `mail`, `statut`, `id_service`) VALUES
+(36, 'RAOUF', 'Mohsin', '36', '', '', '', 3),
+(37, 'SOUADKA', 'Amine', '37', '', '', '', 3),
+(38, 'BENKABOU', 'Amine', '38', '', '', '', 3),
+(39, 'MAJBAR', 'Anas', '39', '', '', '', 3),
+(40, 'BOUGTAB', 'Abdeslam', '40', '', '', '', 3),
+(41, 'BELKOUCHI', 'Abdelkader', '41', '', '', '', 2),
+(42, 'IFRINE', 'Lahssan', '42', '', '', '', 2),
+(43, 'MALKI', 'Hadj Omar', '43', '', '', '', 2),
+(44, 'CHEFCHAOUNI', 'Mountassir', '44', '', '', '', 2),
+(45, 'AHALLAT', 'Mohamed', '45', '', '', '', 1),
+(46, 'HRORA', 'Abdelmalek', '46', '', '', '', 1),
+(47, 'RAISS', 'Mohamed', '47', '', '', '', 1),
+(48, 'SABBAH', 'Farid', '48', '', '', '', 1),
+(49, 'MAJBAR', 'Anas', '49', '', '', '', 1),
+(50, 'ELHARROUDI', 'TIJANI', '50', '', '', '', 4),
+(51, 'ALAOUI', 'Mouna', '51', '', '', '', 1),
+(52, 'SERJI', 'Badr', '52', '', '', '', 4);
 
 -- --------------------------------------------------------
 
@@ -3259,7 +3259,7 @@ INSERT INTO `service` (`id`, `intitule`, `code`) VALUES
 
 CREATE TABLE `utilisateur` (
   `id` int(11) NOT NULL,
-  `code` varchar(255) DEFAULT NULL,
+  `doctorCode` varchar(255) DEFAULT NULL,
   `nom_prenom` varchar(250) DEFAULT NULL,
   `nom_utilisateur` varchar(255) DEFAULT NULL,
   `mdp` varchar(255) DEFAULT NULL,
@@ -3279,15 +3279,15 @@ CREATE TABLE `utilisateur` (
 -- Déchargement des données de la table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`id`, `code`, `nom_prenom`, `nom_utilisateur`, `mdp`, `localisation_ip`, `statut`, `mail`, `telephone`, `date_derniere_cnx`, `question_securite`, `reponse_question`, `token`, `id_role`, `id_service`) VALUES
-(1, NULL, 'yasmine_taous4', 'yasmine.taous4', '5ea345ab330cf29f81d8de9bf5466f508fe351e1', NULL, NULL, 'yasmine.taous@gmail.com', NULL, NULL, NULL, NULL, NULL, 1, 1),
+INSERT INTO `utilisateur` (`id`, `doctorCode`, `nom_prenom`, `nom_utilisateur`, `mdp`, `localisation_ip`, `statut`, `mail`, `telephone`, `date_derniere_cnx`, `question_securite`, `reponse_question`, `token`, `id_role`, `id_service`) VALUES
+(1, '46', 'yasmine_taous4', 'yasmine.taous4', '5ea345ab330cf29f81d8de9bf5466f508fe351e1', NULL, NULL, 'yasmine.taous@gmail.com', NULL, NULL, NULL, NULL, NULL, 1, 1),
 (2, NULL, 'yasmine_taous2', 'yasmine.taous2', '5ea345ab330cf29f81d8de9bf5466f508fe351e1', NULL, NULL, 'yasmine.taous@gmail.com', NULL, NULL, NULL, NULL, NULL, 6, 1),
-(3, NULL, 'yasmine_taous3', 'yasmine.taous3', '5ea345ab330cf29f81d8de9bf5466f508fe351e1', NULL, NULL, 'yasmine.taous@gmail.com', NULL, NULL, NULL, NULL, NULL, 4, 2),
-(4, NULL, 'yasmine_taous', 'yasmine.taous4', '5ea345ab330cf29f81d8de9bf5466f508fe351e1', NULL, NULL, 'yasmine.taous@gmail.com', NULL, NULL, NULL, NULL, NULL, 3, 2),
+(3, '43', 'yasmine_taous3', 'yasmine.taous3', '5ea345ab330cf29f81d8de9bf5466f508fe351e1', NULL, NULL, 'yasmine.taous@gmail.com', NULL, NULL, NULL, NULL, NULL, 4, 2),
+(4, '42', 'yasmine_taous', 'yasmine.taous4', '5ea345ab330cf29f81d8de9bf5466f508fe351e1', NULL, NULL, 'yasmine.taous@gmail.com', NULL, NULL, NULL, NULL, NULL, 3, 2),
 (5, NULL, 'yasmine_taous5', 'yasmine.taous5', '5ea345ab330cf29f81d8de9bf5466f508fe351e1', NULL, NULL, 'yasmine.taous@gmail.com', NULL, NULL, NULL, NULL, NULL, 1, NULL),
 (6, NULL, 'medecin test', 'medecin_test', '5ea345ab330cf29f81d8de9bf5466f508fe351e1', NULL, NULL, 'yasmine.taous@gmail.com', NULL, NULL, NULL, NULL, NULL, 3, 1),
-(7, NULL, 'medecin test', 'medecin_test', '5ea345ab330cf29f81d8de9bf5466f508fe351e1', NULL, NULL, 'yasmine.taous@gmail.com', NULL, NULL, NULL, NULL, NULL, 3, 3),
-(8, NULL, 'medecin ino', 'medecin_ino', 'ebb9046a83699871733341885da33aead8cc37fb', NULL, NULL, 'yasmine.taous@gmail.com', NULL, NULL, NULL, NULL, 'c0c807bd-ec2d-4056-85fc-358ae1bdb2a5', 3, 3),
+(7, '39', 'medecin test', 'medecin_test', '5ea345ab330cf29f81d8de9bf5466f508fe351e1', NULL, NULL, 'yasmine.taous@gmail.com', NULL, NULL, NULL, NULL, NULL, 3, 3),
+(8, '36', 'medecin ino', 'medecin_ino', 'ebb9046a83699871733341885da33aead8cc37fb', NULL, NULL, 'yasmine.taous@gmail.com', NULL, NULL, NULL, NULL, 'c0c807bd-ec2d-4056-85fc-358ae1bdb2a5', 3, 3),
 (9, NULL, 'medecin oujda', 'medecin_oujda', '5ea345ab330cf29f81d8de9bf5466f508fe351e1', NULL, NULL, 'yasmine.taous@gmail.com', NULL, NULL, NULL, NULL, NULL, 3, 4),
 (10, NULL, 'medecin CA', 'medecin_ca', '5ea345ab330cf29f81d8de9bf5466f508fe351e1', NULL, NULL, 'yasmine.taous@gmail.com', NULL, NULL, NULL, NULL, NULL, 3, 2),
 (11, NULL, 'medecin CC', 'medecin_cc', '5ea345ab330cf29f81d8de9bf5466f508fe351e1', NULL, NULL, 'yasmine.taous@gmail.com', NULL, NULL, NULL, NULL, NULL, 3, 1),
